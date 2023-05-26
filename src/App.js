@@ -1,27 +1,29 @@
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [bg, setBg] = useState('white')
+
+  const design ={
+    position: 'absolute',
+    backgroundColor: bg,
+    width: '100%',
+    height: '100%'
+  }
+
+  const btnDesign = {
+    position: 'absolute',
+    left: '45%',
+    top: '50%'
+  }
+
+  const mode = () => {
+    bg === 'white'? setBg('black'):setBg('white')
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
+    <div className="App" style={design}>
+      <button onClick={mode} style={btnDesign}>Change Mode</button>      
     </div>
   );
 }
